@@ -1,0 +1,12 @@
+[
+    {
+        "countrey":"france",
+        "cities":"['paris', 'lyon']",
+        "time_visited":4
+    },
+    {
+        "countrey":"germany",
+        "cities":"['Munich', 'Frankfurt']",
+        "time_visited":9
+    }
+]
