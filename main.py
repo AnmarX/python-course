@@ -12,6 +12,29 @@ from ast import literal_eval
 from random import randint
 import pandas
 
+#### parsing data ####
+def parse(data):
+    #data = "JEZA425333, 4263 Otbah Ibn Aaed,qqqq" 
+    new_list = []
+    temp = ""
+    for item in data.split(','):
+        for sub_item in item.split():
+            if sub_item.isdigit():
+                # if temp:
+                    # new_list.append(temp)
+                # temp = ""
+                new_list.append(sub_item)
+            else:
+                temp += ' ' + sub_item if temp else sub_item
+        if temp:
+            new_list.append(temp)
+            temp = ""
+    print(new_list)
+
+parse("JEZA425333, 4263 Otbah Ibn Aaed,qqqq")
+#### parsing data ####
+
+
 #---------------------------------day 1 start-----------------------------------
 #///if you dont want to get to the next line use end =""
 #///if you use append it will add the whole word on a single index example ['nmr']
