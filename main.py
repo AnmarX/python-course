@@ -973,55 +973,55 @@ import pandas
 # print(nmr[-1:])# only the last element 
 # print(nmr[:-1]) # all the elemtns except the last element  
 
-import random
+# import random
 
 
-def thedata():
-    with open ("for_day_14.json") as celebrityFile:
-        data=json.load(celebrityFile)
+# def thedata():
+#     with open ("for_day_14.json") as celebrityFile:
+#         data=json.load(celebrityFile)
 
-    ran=random.choice(data)
-    a=ran["name"]
-    b=ran["follower_count"]
-    # return f"{a} {b}"
-    return a,b
+#     ran=random.choice(data)
+#     a=ran["name"]
+#     b=ran["follower_count"]
+#     # return f"{a} {b}"
+#     return a,b
     
 
 
-boolean=True 
-point=0
+# boolean=True 
+# point=0
 
-while boolean:
-    cho1=thedata()
-    name=cho1[0]
-    count=cho1[1]
+# while boolean:
+#     cho1=thedata()
+#     name=cho1[0]
+#     count=cho1[1]
 
-    print(count)
+#     print(count)
 
-    cho2=thedata()
-    name2=cho2[0]
-    count2=cho2[1] 
+#     cho2=thedata()
+#     name2=cho2[0]
+#     count2=cho2[1] 
 
-    print(count2)
+#     print(count2)
 
-    print(f"who has more follwers {name} or {name2}")
-    user=input("A OR B :").lower()
+#     print(f"who has more follwers {name} or {name2}")
+#     user=input("A OR B :").lower()
     
     
-    if user == "a".lower() and count > count2:
-        point+=1
-        print(f"ur score {point}")
-        continue
+#     if user == "a".lower() and count > count2:
+#         point+=1
+#         print(f"ur score {point}")
+#         continue
 
-    elif user == "b".lower() and count < count2:
-        point+=1
-        print(f"ur score {point}")
-        continue
+#     elif user == "b".lower() and count < count2:
+#         point+=1
+#         print(f"ur score {point}")
+#         continue
 
-    else:
-        print("game over")
-        print(f"you got {point} score")
-        break
+#     else:
+#         print("game over")
+#         print(f"you got {point} score")
+#         break
 
 
 
@@ -1154,6 +1154,182 @@ while boolean:
 
 
 #------------------------------------day 14 end---------------------------------------
+
+
+
+#------------------------------------day 15 start---------------------------------------
+import sys
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+profit = 0
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
+# first is the user will chose a coffe 
+
+# then he will pay will money if he have enough money and we get the total money the person enterd he will get it if he doens't have enough money ge wont get the coffe also if the resource is not enough the person wont get the coffe
+
+#if he does get the coffe our reoruces will decrease and will add the profit of the person got it 
+
+#report to get the how much resource we got lift and how much i have earned
+
+def calcMoney():
+    money=0
+    print("insert money for coffe")
+    money+=int(input("How many 1 SR :"))* 1
+    money+=int(input("How many 0.5 SR :"))* 0.5
+    money+=int(input("How many 0.25 SR :"))* 0.25
+    return money
+
+
+def enough_money(money,dictResource):
+    if money >= dictResource:
+        global profit
+        profit+=money
+        return True
+    else:
+        print("not enough money")
+        return False
+
+def enough_resources(ingredients):
+    
+    for item in ingredients:
+        if ingredients[item] > resources[item]:
+            return False
+    return True
+
+def resource_decrease(order_ingredients):
+    
+    for item in order_ingredients:
+        resources[item] -= order_ingredients[item]
+    print("ur coffe is served")
+
+while True:
+    user = input("​What would you like? (espresso/latte/cappuccino/exit): ")
+    if user == "exit":
+        sys.exit("")
+
+    elif user == "report":
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffee: {resources['coffee']}g")
+        print(f"Money: {profit}SR")
+    
+    else:
+        if enough_resources(MENU[user]["ingredients"]):
+            payment=calcMoney()
+            if enough_money(payment,MENU[user]["cost"]):
+                resource_decrease(MENU[user]["ingredients"])
+
+
+
+# write a loop to go throgh all the resorces keys milk etc..
+#test(resources,MENU[user]["ingredients"])
+# print(resources)
+# print(MENU["latte"]["ingredients"])
+# for items in resources:
+#     res=resources[items] - MENU["latte"]["ingredients"][items]
+#     print(items,":",res)
+# print(enough_money(calcMoney(),MENU[user]["cost"]))
+# print(enough_resources(MENU[user]["ingredients"]))
+
+
+
+
+
+
+
+############## angela ################
+# def is_resource_sufficient(order_ingredients):
+#     """Returns True when order can be made, False if ingredients are insufficient."""
+#     for item in order_ingredients:
+#         if order_ingredients[item] > resources[item]:
+#             print(f"​Sorry there is not enough {item}.")
+#             return False
+#     return True
+
+
+# def process_coins():
+#     """Returns the total calculated from coins inserted."""
+#     print("Please insert coins.")
+#     total = int(input("how many quarters?: ")) * 0.25
+#     total += int(input("how many dimes?: ")) * 0.1
+#     total += int(input("how many nickles?: ")) * 0.05
+#     total += int(input("how many pennies?: ")) * 0.01
+#     return total
+
+
+# def is_transaction_successful(money_received, drink_cost):
+#     """Return True when the payment is accepted, or False if money is insufficient."""
+#     if money_received >= drink_cost:
+#         change = round(money_received - drink_cost, 2)
+#         print(f"Here is ${change} in change.")
+#         global profit
+#         profit += drink_cost
+#         return True
+#     else:
+#         print("Sorry that's not enough money. Money refunded.")
+#         return False
+
+
+# def make_coffee(drink_name, order_ingredients):
+#     """Deduct the required ingredients from the resources."""
+#     for item in order_ingredients:
+#         resources[item] -= order_ingredients[item]
+#     print(f"Here is your {drink_name} ☕️. Enjoy!")
+
+
+# is_on = True
+
+# while is_on:
+#     choice = input("​What would you like? (espresso/latte/cappuccino): ")
+#     if choice == "off":
+#         is_on = False
+#     elif choice == "report":
+#         print(f"Water: {resources['water']}ml")
+#         print(f"Milk: {resources['milk']}ml")
+#         print(f"Coffee: {resources['coffee']}g")
+#         print(f"Money: ${profit}")
+#     else:
+#         drink = MENU[choice]
+#         if is_resource_sufficient(drink["ingredients"]):
+#             payment = process_coins()
+#             if is_transaction_successful(payment, drink["cost"]):
+#                 make_coffee(choice, drink["ingredients"])
+############## angela ################
+
+
+
+
+
+#------------------------------------day 15 end---------------------------------------
+
 
 
 
