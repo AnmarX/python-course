@@ -13,25 +13,25 @@ from random import randint
 import pandas
 
 #### parsing data ####
-def parse(data):
-    #data = "JEZA425333, 4263 Otbah Ibn Aaed,qqqq" 
-    new_list = []
-    temp = ""
-    for item in data.split(','):
-        for sub_item in item.split():
-            if sub_item.isdigit():
-                # if temp:
-                    # new_list.append(temp)
-                # temp = ""
-                new_list.append(sub_item)
-            else:
-                temp += ' ' + sub_item if temp else sub_item
-        if temp:
-            new_list.append(temp)
-            temp = ""
-    print(new_list)
+# def parse(data):
+#     #data = "JEZA425333, 4263 Otbah Ibn Aaed,qqqq" 
+#     new_list = []
+#     temp = ""
+#     for item in data.split(','):
+#         for sub_item in item.split():
+#             if sub_item.isdigit():
+#                 # if temp:
+#                     # new_list.append(temp)
+#                 # temp = ""
+#                 new_list.append(sub_item)
+#             else:
+#                 temp += ' ' + sub_item if temp else sub_item
+#         if temp:
+#             new_list.append(temp)
+#             temp = ""
+#     print(new_list)
 
-parse("JEZA425333, 4263 Otbah Ibn Aaed,qqqq")
+# parse("JEZA425333, 4263 Otbah Ibn Aaed,qqqq")
 #### parsing data ####
 
 
