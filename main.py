@@ -1181,38 +1181,38 @@ import pandas
 
 
 #------------------------------------day 15 start---------------------------------------
-import sys
-MENU = {
-    "espresso": {
-        "ingredients": {
-            "water": 50,
-            "coffee": 18,
-        },
-        "cost": 1.5,
-    },
-    "latte": {
-        "ingredients": {
-            "water": 200,
-            "milk": 150,
-            "coffee": 24,
-        },
-        "cost": 2.5,
-    },
-    "cappuccino": {
-        "ingredients": {
-            "water": 250,
-            "milk": 100,
-            "coffee": 24,
-        },
-        "cost": 3.0,
-    }
-}
-profit = 0
-resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100,
-}
+# import sys
+# MENU = {
+#     "espresso": {
+#         "ingredients": {
+#             "water": 50,
+#             "coffee": 18,
+#         },
+#         "cost": 1.5,
+#     },
+#     "latte": {
+#         "ingredients": {
+#             "water": 200,
+#             "milk": 150,
+#             "coffee": 24,
+#         },
+#         "cost": 2.5,
+#     },
+#     "cappuccino": {
+#         "ingredients": {
+#             "water": 250,
+#             "milk": 100,
+#             "coffee": 24,
+#         },
+#         "cost": 3.0,
+#     }
+# }
+# profit = 0
+# resources = {
+#     "water": 300,
+#     "milk": 200,
+#     "coffee": 100,
+# }
 
 # first is the user will chose a coffe 
 
@@ -1222,53 +1222,53 @@ resources = {
 
 #report to get the how much resource we got lift and how much i have earned
 
-def calcMoney():
-    money=0
-    print("insert money for coffe")
-    money+=int(input("How many 1 SR :"))* 1
-    money+=int(input("How many 0.5 SR :"))* 0.5
-    money+=int(input("How many 0.25 SR :"))* 0.25
-    return money
+# def calcMoney():
+#     money=0
+#     print("insert money for coffe")
+#     money+=int(input("How many 1 SR :"))* 1
+#     money+=int(input("How many 0.5 SR :"))* 0.5
+#     money+=int(input("How many 0.25 SR :"))* 0.25
+#     return money
 
 
-def enough_money(money,dictResource):
-    if money >= dictResource:
-        global profit
-        profit+=money
-        return True
-    else:
-        print("not enough money")
-        return False
+# def enough_money(money,dictResource):
+#     if money >= dictResource:
+#         global profit
+#         profit+=money
+#         return True
+#     else:
+#         print("not enough money")
+#         return False
 
-def enough_resources(ingredients):
+# def enough_resources(ingredients):
     
-    for item in ingredients:
-        if ingredients[item] > resources[item]:
-            return False
-    return True
+#     for item in ingredients:
+#         if ingredients[item] > resources[item]:
+#             return False
+#     return True
 
-def resource_decrease(order_ingredients):
+# def resource_decrease(order_ingredients):
     
-    for item in order_ingredients:
-        resources[item] -= order_ingredients[item]
-    print("ur coffe is served")
+#     for item in order_ingredients:
+#         resources[item] -= order_ingredients[item]
+#     print("ur coffe is served")
 
-while True:
-    user = input("​What would you like? (espresso/latte/cappuccino/exit): ")
-    if user == "exit":
-        sys.exit("")
+# while True:
+#     user = input("​What would you like? (espresso/latte/cappuccino/exit): ")
+#     if user == "exit":
+#         sys.exit("")
 
-    elif user == "report":
-        print(f"Water: {resources['water']}ml")
-        print(f"Milk: {resources['milk']}ml")
-        print(f"Coffee: {resources['coffee']}g")
-        print(f"Money: {profit}SR")
+#     elif user == "report":
+#         print(f"Water: {resources['water']}ml")
+#         print(f"Milk: {resources['milk']}ml")
+#         print(f"Coffee: {resources['coffee']}g")
+#         print(f"Money: {profit}SR")
     
-    else:
-        if enough_resources(MENU[user]["ingredients"]):
-            payment=calcMoney()
-            if enough_money(payment,MENU[user]["cost"]):
-                resource_decrease(MENU[user]["ingredients"])
+#     else:
+#         if enough_resources(MENU[user]["ingredients"]):
+#             payment=calcMoney()
+#             if enough_money(payment,MENU[user]["cost"]):
+#                 resource_decrease(MENU[user]["ingredients"])
 
 
 
@@ -1352,6 +1352,380 @@ while True:
 
 
 #------------------------------------day 15 end---------------------------------------
+
+
+
+#------------------------------------day 16 start---------------------------------------
+
+########### playing with OOP ##################
+import sys
+class Student:
+    num_of_student=0
+
+    @classmethod
+    def get_numberStu(cls):
+        return cls.num_of_student
+
+    @classmethod
+    def add_numberStu(cls):
+        cls.num_of_student +=1
+
+    def __init__(self,name,grade,age) -> None:
+        self.name=name
+        self.age=age
+        self.grade=grade
+        Student.add_numberStu()
+
+    def get_grade(self):
+        return self.grade
+    
+    def get_stu_name(self):
+        return self.name
+
+
+class Allcourses:
+    """Models each Menu Item."""
+    def __init__(self, name,max_stu):
+        self.name = name
+        self.max_stu=max_stu
+       
+       
+
+
+class Course:
+    def __init__(self) -> None:
+        self.students=[]
+        self.allCourse = [
+            Allcourses(name="CPIT-455",max_stu=2),
+            Allcourses(name="CPIT-490",max_stu=3),
+            Allcourses(name="CPIT-405",max_stu=5)
+        ]
+        
+
+    def add_student(self,student_obj,order_name):
+        ## this way works##
+        for stu in self.allCourse:
+            if stu.name.lower().strip() == order_name.lower().strip():
+                if len(self.students) < stu.max_stu:
+                    self.students.append(student_obj)
+                    for student_num in range(len(self.students)):
+                        return self.students[student_num].name,True
+                        
+        return False
+        ## this way also works##
+        # for stu in range(len(self.allCourse)):
+        #     if self.allCourse[stu].name.lower().strip() == order_name.lower().strip():
+        #         if len(self.students) < self.allCourse[stu].max_stu:
+        #             self.students.append(student_obj)
+        #             for student_num in range(len(self.students)):
+        #                 return self.students[student_num].name,True
+                        
+        # return False
+    
+    def get_average_grade(self):
+        value=0
+        for student in self.students:
+            value+=student.get_grade()
+        return value / len(self.students)
+    
+   
+    def choose_course(self):
+        options = ""
+        for item in self.allCourse:
+            options += f"{item.name}/"
+        return options
+    
+    def find_course(self, order_name):
+        """Searches the menu for a particular drink by name. Returns that item if it exists, otherwise returns None"""
+        for item in self.allCourse:
+            if item.name.lower().strip() == order_name.lower().strip():
+                print("Course exists")
+                return item
+        
+        #print("Sorry that item is not available.")
+
+
+    def subject_and_name(self,student_obj,x):
+        try :
+            print(f"{student_obj.get_stu_name()},{self.find_course(x).name}")
+        except:
+            print("there is no course with this name")
+        
+
+    def if_added(self,student_obj,order_name):
+        results=self.add_student(student_obj,order_name)
+        if results ==False:
+            print("student was not added for the course")
+        elif results[1] ==True:
+            print(f"student added,{results[0]} for course {order_name}")
+                
+
+        
+        
+        # for a in range(len(self.students)):
+        #     #print(a)
+        #     if a < self.allCourse[a].max_stu:
+        #         print(f"student {self.students[a].name} is added to course {self.allCourse[a].name}")
+        #     if a == self.allCourse[a].max_stu-1:
+        #         print("the course is full")
+        #         return True
+    
+            
+    def not_added(self):
+        print("student not added")
+
+c=Course()
+x=input(f"choose course ({c.choose_course()})")
+s3=Student("nmr",80,20)
+#c.find_course(x)
+#stud=c.add_student(s3,x)
+c.subject_and_name(s3,x)
+#print(stud)
+c.if_added(s3,x)
+print(Student.get_numberStu())
+
+# user=input("enter (exit) if you no longer want to add, enter (add) if you want to continue: ")
+
+# while True:
+
+
+#     if user == "exit".lower().strip():
+#         sys.exit(0)
+#     elif user == "add".lower().strip():
+#         xx=input("write your name: ")
+#         yy=int(input("write your grade: "))
+#         zz=int(input("write your age: "))
+#         s1=Student(xx,yy,zz)
+        
+#         x=input(f"choose course ({c.choose_course()})")
+#         if not c.find_course(x):
+#             pass
+#         else:
+#             c.add_student(s1) 
+
+    
+        
+
+
+
+# c1=Course("CPIT-405",2)
+# user=input("enter (exit) if you no longer want to add, enter (add) if you want to continue: ")
+# while True:
+#     if user == "exit".lower().strip():
+#         sys.exit(0)
+#     elif user == "add".lower().strip():
+#         xx=input("write your name: ")
+#         yy=int(input("write your grade: "))
+#         zz=int(input("write your age: "))
+#         s1=Student(xx,yy,zz)
+#         c1.add_student(s1) 
+       
+#         if c1.if_added()== True:
+#             print(Student.get_numberStu())
+#             break
+
+# s2=Student("nemo",77,27)
+# s3=Student("nmr",80,20)
+# c1.add_student(s1) 
+# c1.add_student(s2) 
+# c1.add_student(s3) 
+
+#c1.if_added()
+# for stu in range(len(c1.students)):
+
+
+
+
+
+# nr=[["erer","ghhh"],["dfdf","dfdf"]]
+# qq=len(nr)
+# print(qq)
+# for x in nr:
+#     for y in x:
+#         print(y)
+
+
+
+
+# print(c1.get_studnets(),"\n")
+# print(c1.students[0].name)
+    
+
+
+
+
+# class Human:
+#     def __init__(self,name,age):
+#         self.name=name
+#         self.age=age
+
+#     def get_name(self):
+#         return self.name
+    
+#     def set_name(self,name):
+#         self.name=name
+
+#     def set_age(self,age):
+#         self.age=age
+
+#     def get_age(self):
+#         return self.age
+       
+
+# h =Human("nmr",23)
+# print(h.get_name())
+# print(h.get_age())
+
+# h.set_name("anmar")
+# print(h.get_name())
+
+
+# h2 =Human("too","40")
+# print(h2.name)
+########### playing with OOP ##################
+
+
+
+
+
+
+
+
+# class CoffeeMaker:
+#     """Models the machine that makes the coffee"""
+#     def __init__(self):
+#         self.resources = {
+#             "water": 300,
+#             "milk": 200,
+#             "coffee": 100,
+#         }
+
+#     def report(self):
+#         """Prints a report of all resources."""
+#         print(f"Water: {self.resources['water']}ml")
+#         print(f"Milk: {self.resources['milk']}ml")
+#         print(f"Coffee: {self.resources['coffee']}g")
+
+#     def is_resource_sufficient(self, drink):
+#         """Returns True when order can be made, False if ingredients are insufficient."""
+#         can_make = True
+#         for item in drink.ingredients:
+#             if drink.ingredients[item] > self.resources[item]:
+#                 print(f"Sorry there is not enough {item}.")
+#                 can_make = False
+#         return can_make
+
+#     def make_coffee(self, order):
+#         """Deducts the required ingredients from the resources."""
+#         for item in order.ingredients:
+#             self.resources[item] -= order.ingredients[item]
+#         print(f"Here is your {order.name} ☕️. Enjoy!")
+
+
+
+# class MenuItem:
+#     """Models each Menu Item."""
+#     def __init__(self, name, water, milk, coffee, cost):
+#         self.name = name
+#         self.cost = cost
+#         self.ingredients = {
+#             "water": water,
+#             "milk": milk,
+#             "coffee": coffee
+#         }
+#         print(self.ingredients)
+
+
+# class Menu:
+#     """Models the Menu with drinks."""
+#     def __init__(self):
+#         self.menu = [
+#             MenuItem(name="latte", water=200, milk=150, coffee=24, cost=2.5),
+#             MenuItem(name="espresso", water=50, milk=0, coffee=18, cost=1.5),
+#             MenuItem(name="cappuccino", water=250, milk=50, coffee=24, cost=3),
+#         ]
+
+#     def get_items(self):
+#         """Returns all the names of the available menu items"""
+#         options = ""
+#         for item in self.menu:
+#             options += f"{item.name}/"
+#         return options
+
+#     def find_drink(self, order_name):
+#         """Searches the menu for a particular drink by name. Returns that item if it exists, otherwise returns None"""
+#         for item in self.menu:
+#             if item.name == order_name:
+                
+#                 return item
+#         print("Sorry that item is not available.")
+
+
+
+# class MoneyMachine:
+
+#     CURRENCY = "$"
+
+#     COIN_VALUES = {
+#         "quarters": 0.25,
+#         "dimes": 0.10,
+#         "nickles": 0.05,
+#         "pennies": 0.01
+#     }
+
+#     def __init__(self):
+#         self.profit = 0
+#         self.money_received = 0
+
+#     def report(self):
+#         """Prints the current profit"""
+#         print(f"Money: {self.CURRENCY}{self.profit}")
+
+#     def process_coins(self):
+#         """Returns the total calculated from coins inserted."""
+#         print("Please insert coins.")
+#         for coin in self.COIN_VALUES:
+#             self.money_received += int(input(f"How many {coin}?: ")) * self.COIN_VALUES[coin]
+#         return self.money_received
+
+#     def make_payment(self, cost):
+#         """Returns True when payment is accepted, or False if insufficient."""
+#         self.process_coins()
+#         if self.money_received >= cost:
+#             change = round(self.money_received - cost, 2)
+#             print(f"Here is {self.CURRENCY}{change} in change.")
+#             self.profit += cost
+#             self.money_received = 0
+#             return True
+#         else:
+#             print("Sorry that's not enough money. Money refunded.")
+#             self.money_received = 0
+#             return False
+        
+# ## main ##
+# money_machine = MoneyMachine()
+# coffee_maker = CoffeeMaker()
+# menu = Menu()
+
+# is_on = True
+
+# while is_on:
+#     options = menu.get_items()
+#     choice = input(f"What would you like? ({options}): ")
+#     if choice == "off":
+#         is_on = False
+#     elif choice == "report":
+#         coffee_maker.report()
+#         money_machine.report()
+#     else:
+        
+#         drink = menu.find_drink(choice)
+        
+#         if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
+#           coffee_maker.make_coffee(drink)
+
+#------------------------------------day 16 end---------------------------------------
+
 
 
 
