@@ -12,6 +12,23 @@ from ast import literal_eval
 from random import randint
 import pandas
 
+# #random.sample give it the list and how many char to take from the list 
+###### password generator#######
+lower="qwertyuiopasdfghjklzxcvbnm"
+upper="QWERTYUIOPASDFGHJKLZXCVBNM"
+num="1234567890"
+symbols="[]{;/.<()-_=+`~|@#$%^&*}"
+all=lower+upper+num+symbols
+length=16
+password=random.sample(all,length)
+print(password)
+
+###### password generator#######
+
+
+
+
+
 #### parsing data ####
 # def parse(data):
 #     #data = "JEZA425333, 4263 Otbah Ibn Aaed,qqqq" 
@@ -1358,131 +1375,139 @@ import pandas
 #------------------------------------day 16 start---------------------------------------
 
 ########### playing with OOP ##################
-import sys
-class Student:
-    num_of_student=0
+# import sys
+# class Student:
+#     # #class attribute
+#     num_of_student=0
+#     # #class method is assosiated with the class atrribute not regular attribute
+#     # #class method does not have anyt accosiation with the instance 
+#     # #static method does not change any thing it's a function that can be used any time any where, for example def add()
+#     @classmethod
+#     def get_numberStu(cls):
+#         return cls.num_of_student
 
-    @classmethod
-    def get_numberStu(cls):
-        return cls.num_of_student
+#     @staticmethod
+#     def add(x):
+#         return x +1
+#     # # Student.add(3)
 
-    @classmethod
-    def add_numberStu(cls):
-        cls.num_of_student +=1
+#     @classmethod
+#     def add_numberStu(cls):
+#         cls.num_of_student +=1
 
-    def __init__(self,name,grade,age) -> None:
-        self.name=name
-        self.age=age
-        self.grade=grade
-        Student.add_numberStu()
+#     def __init__(self,name,grade,age) -> None:
+#         self.name=name
+#         self.age=age
+#         self.grade=grade
+#         Student.add_numberStu()
 
-    def get_grade(self):
-        return self.grade
+#     def get_grade(self):
+#         return self.grade
     
-    def get_stu_name(self):
-        return self.name
+#     def get_stu_name(self):
+#         return self.name
 
 
-class Allcourses:
-    """Models each Menu Item."""
-    def __init__(self, name,max_stu):
-        self.name = name
-        self.max_stu=max_stu
+# class Allcourses:
+#     """Models each Menu Item."""
+#     def __init__(self, name,max_stu):
+#         self.name = name
+#         self.max_stu=max_stu
        
        
 
 
-class Course:
-    def __init__(self) -> None:
-        self.students=[]
-        self.allCourse = [
-            Allcourses(name="CPIT-455",max_stu=2),
-            Allcourses(name="CPIT-490",max_stu=3),
-            Allcourses(name="CPIT-405",max_stu=5)
-        ]
+# class Course:
+#     def __init__(self) -> None:
+#         self.students=[]
+#         self.allCourse = [
+#             Allcourses(name="CPIT-455",max_stu=2),
+#             Allcourses(name="CPIT-490",max_stu=3),
+#             Allcourses(name="CPIT-405",max_stu=5)
+#         ]
         
 
-    def add_student(self,student_obj,order_name):
-        ## this way works##
-        for stu in self.allCourse:
-            if stu.name.lower().strip() == order_name.lower().strip():
-                if len(self.students) < stu.max_stu:
-                    self.students.append(student_obj)
-                    for student_num in range(len(self.students)):
-                        return self.students[student_num].name,True
+#     def add_student(self,student_obj,order_name):
+#         ## this way works##
+#         for stu in self.allCourse:
+#             if stu.name.lower().strip() == order_name.lower().strip():
+#                 if len(self.students) < stu.max_stu:
+#                     self.students.append(student_obj)
+#                     for student_num in range(len(self.students)):
+#                         return self.students[student_num].name,True
                         
-        return False
-        ## this way also works##
-        # for stu in range(len(self.allCourse)):
-        #     if self.allCourse[stu].name.lower().strip() == order_name.lower().strip():
-        #         if len(self.students) < self.allCourse[stu].max_stu:
-        #             self.students.append(student_obj)
-        #             for student_num in range(len(self.students)):
-        #                 return self.students[student_num].name,True
+#         return False
+#         ## this way also works##
+#         # for stu in range(len(self.allCourse)):
+#         #     if self.allCourse[stu].name.lower().strip() == order_name.lower().strip():
+#         #         if len(self.students) < self.allCourse[stu].max_stu:
+#         #             self.students.append(student_obj)
+#         #             for student_num in range(len(self.students)):
+#         #                 return self.students[student_num].name,True
                         
-        # return False
+#         # return False
     
-    def get_average_grade(self):
-        value=0
-        for student in self.students:
-            value+=student.get_grade()
-        return value / len(self.students)
+#     def get_average_grade(self):
+#         value=0
+#         for student in self.students:
+#             value+=student.get_grade()
+#         return value / len(self.students)
     
    
-    def choose_course(self):
-        options = ""
-        for item in self.allCourse:
-            options += f"{item.name}/"
-        return options
+#     def choose_course(self):
+#         options = ""
+#         for item in self.allCourse:
+#             options += f"{item.name}/"
+#         return options
     
-    def find_course(self, order_name):
-        """Searches the menu for a particular drink by name. Returns that item if it exists, otherwise returns None"""
-        for item in self.allCourse:
-            if item.name.lower().strip() == order_name.lower().strip():
-                print("Course exists")
-                return item
+#     def find_course(self, order_name):
+#         """Searches the menu for a particular drink by name. Returns that item if it exists, otherwise returns None"""
+#         for item in self.allCourse:
+#             if item.name.lower().strip() == order_name.lower().strip():
+#                 print("Course exists")
+#                 return item
         
-        #print("Sorry that item is not available.")
+#         #print("Sorry that item is not available.")
 
 
-    def subject_and_name(self,student_obj,x):
-        try :
-            print(f"{student_obj.get_stu_name()},{self.find_course(x).name}")
-        except:
-            print("there is no course with this name")
+#     def subject_and_name(self,student_obj,x):
+#         try :
+#             print(f"{student_obj.get_stu_name()},{self.find_course(x).name}")
+#         except:
+#             print("there is no course with this name")
         
 
-    def if_added(self,student_obj,order_name):
-        results=self.add_student(student_obj,order_name)
-        if results ==False:
-            print("student was not added for the course")
-        elif results[1] ==True:
-            print(f"student added,{results[0]} for course {order_name}")
+#     def if_added(self,student_obj,order_name):
+#         results=self.add_student(student_obj,order_name)
+#         if results ==False:
+#             print("student was not added for the course")
+#         elif results[1] ==True:
+#             print(f"student added,{results[0]} for course {order_name}")
                 
 
         
         
-        # for a in range(len(self.students)):
-        #     #print(a)
-        #     if a < self.allCourse[a].max_stu:
-        #         print(f"student {self.students[a].name} is added to course {self.allCourse[a].name}")
-        #     if a == self.allCourse[a].max_stu-1:
-        #         print("the course is full")
-        #         return True
+#         # for a in range(len(self.students)):
+#         #     #print(a)
+#         #     if a < self.allCourse[a].max_stu:
+#         #         print(f"student {self.students[a].name} is added to course {self.allCourse[a].name}")
+#         #     if a == self.allCourse[a].max_stu-1:
+#         #         print("the course is full")
+#         #         return True
     
             
-    def not_added(self):
-        print("student not added")
+#     def not_added(self):
+#         print("student not added")
 
-c=Course()
-x=input(f"choose course ({c.choose_course()})")
-s3=Student("nmr",80,20)
-#c.find_course(x)
-#stud=c.add_student(s3,x)
-c.subject_and_name(s3,x)
-#print(stud)
-c.if_added(s3,x)
-print(Student.get_numberStu())
+# c=Course()
+# x=input(f"choose course ({c.choose_course()})")
+# s3=Student("nmr",80,20)
+# #c.find_course(x)
+# #stud=c.add_student(s3,x)
+# c.subject_and_name(s3,x)
+# #print(stud)
+# c.if_added(s3,x)
+# print(Student.get_numberStu())
 
 # user=input("enter (exit) if you no longer want to add, enter (add) if you want to continue: ")
 
@@ -1730,6 +1755,320 @@ print(Student.get_numberStu())
 
 
 
+#------------------------------------day 17 start---------------------------------------
+
+# class User:
+#     def __init__(self,name) -> None:
+#         self.name=name
+#         self.followers=0
+#         self.following=0
+
+#     def follow(self,user):
+#         user.followers+=1
+#         self.following+=1
+
+# a=User("anmar")
+# b=User("nemo")
+# b.follow(a)
+# a.follow(b)
+# print(a.followers)
+# print(a.following)
+
+# print(b.followers)
+# print(b.following)
+
+# import random
+# question_data = [
+# {"text": "A slug's blood is green.", "answer": "True"},
+# {"text": "The loudest animal is the African Elephant.", "answer": "False"},
+# {"text": "Approximately one quarter of human bones are in the feet.", "answer": "True"},
+# {"text": "The total surface area of a human lungs is the size of a football pitch.", "answer": "True"},
+# {"text": "In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.", "answer": "True"},
+# {"text": "In London, UK, if you happen to die in the House of Parliament, you are entitled to a state funeral.", "answer": "False"},
+# {"text": "It is illegal to pee in the Ocean in Portugal.", "answer": "True"},
+# {"text": "You can lead a cow down stairs but not up stairs.", "answer": "False"},
+# {"text": "Google was originally called 'Backrub'.", "answer": "True"},
+# {"text": "Buzz Aldrin's mother's maiden name was 'Moon'.", "answer": "True"},
+# {"text": "No piece of square dry paper can be folded in half more than 7 times.", "answer": "False"},
+# {"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
+# ]
+
+
+# class Question:
+    
+#     def __init__(self,text,answer) -> None:
+#         self.text=text
+#         self.answer=answer
+
+# class Quiz:
+    
+
+#     def __init__(self,q_list) -> None:
+#         self.question_list = q_list
+#         self.score=0
+#         self.question_number = 0
+        
+
+#     def still_question_toGo(self):
+#         return self.question_number < len(self.question_list)
+
+#     def next_question(self):
+#         current_question = self.question_list[self.question_number]
+#         self.question_number += 1
+#         user_answer = input(f"Q.{self.question_number}: {current_question.text} (True/False): ")
+#         self.cheak_answer(user_answer, current_question.answer)
+    
+#     def cheak_answer(self,user_answer, correct_answer):
+#         if user_answer.lower() == correct_answer.lower():
+#             self.score += 1
+#             print("You got it right!")
+#         else:
+#             print("That's wrong.")
+#         print(f"The correct answer was: {correct_answer}.")
+#         print(f"Your current score is: {self.score}/{self.question_number}\n")
+        
+
+
+
+
+# question_bank = []
+# for l in range(len(question_data)):    
+#     random_choise=random.choice(question_data)
+#     text_ran=random_choise["text"]
+#     answer_ran=random_choise["answer"]
+#     question=Question(text_ran,answer_ran)
+#     question_bank.append(question)
+    
+        
+# quiz=Quiz(question_bank)
+
+# while quiz.still_question_toGo():
+#     quiz.next_question()
+
+# print("You've completed the quiz")
+# print(f"Your final score was: {quiz.score}/{quiz.question_number}")
+    
+
+
+  # boolean=input(f"Choose answer {text_ran} enter (True or False) ").lower().strip()
+    # if boolean == answer_ran:
+    #     pass
+    # else:
+    #     break
+# ww=[]
+# qq=[["Dfdf","TY","URT"],["Dfsdsdddf","sfsfsfTY","URsfsfsfT"]]
+# cc=qq[0][0]="nemo"
+# print(qq)
+# for l in qq:
+#   for rr in l:
+#     if rr == "TY":
+#       ww.append(rr)
+#       #ww.append(l)
+# print(ww)
+    # for a in l:
+#         g=l[1]
+#         ww.append(g)
+# print(ww)
+# lst=[[1,2,3],[11,12,13],[21,22,23]]
+# a=list(zip(*lst))[0]
+# print(a)
+
+
+
+############## angela ################
+
+# question_data = [
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "The HTML5 standard was published in 2014.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "The first computer bug was formed by faulty wires.",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "FLAC stands for 'Free Lossless Audio Condenser'.",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "All program codes have to be compiled into an executable file in order to be run. This file can then be executed on any machine.",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "easy",
+#         "question": "Linus Torvalds created Linux and Git.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "easy",
+#         "question": "The programming language 'Python' is based off a modified version of 'JavaScript'",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "AMD created the first consumer 64-bit processor.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "easy",
+#         "question": "'HTML' stands for Hypertext Markup Language.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "easy",
+#         "question": "In most programming languages, the operator ++ is equivalent to the statement '+= 1'.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "hard",
+#         "question": "The IBM PC used an Intel 8008 microprocessor clocked at 4.77 MHz and 8 kilobytes of memory.",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     }
+# ]
+
+
+# class Question:
+
+#     def __init__(self, q_text, q_answer):
+#         self.text = q_text
+#         self.answer = q_answer
+
+# class QuizBrain:
+
+#     def __init__(self, q_list):
+#         self.question_number = 0
+#         self.score = 0
+#         self.question_list = q_list
+
+#     def still_has_questions(self):
+#         return self.question_number < len(self.question_list)
+
+#     def next_question(self):
+#         current_question = self.question_list[self.question_number]
+#         self.question_number += 1
+#         user_answer = input(f"Q.{self.question_number}: {current_question.text} (True/False): ")
+#         self.check_answer(user_answer, current_question.answer)
+
+#     def check_answer(self, user_answer, correct_answer):
+#         if user_answer.lower() == correct_answer.lower():
+#             self.score += 1
+#             print("You got it right!")
+#         else:
+#             print("That's wrong.")
+#         print(f"The correct answer was: {correct_answer}.")
+#         print(f"Your current score is: {self.score}/{self.question_number}")
+#         print("\n")
+
+# question_bank = []
+# for question in question_data:
+#     question_text = question["question"]
+#     question_answer = question["correct_answer"]
+#     new_question = Question(question_text, question_answer)
+#     question_bank.append(new_question)
+
+# quiz = QuizBrain(question_bank)
+
+# while quiz.still_has_questions():
+#     quiz.next_question()
+
+# print("You've completed the quiz")
+# print(f"Your final score was: {quiz.score}/{quiz.question_number}")
+############## angela ################
+
+
+
+
+#------------------------------------day 17 end---------------------------------------
+
+
+
+
+#------------------------------------day 24 start---------------------------------
+
+
+
+# s=["nemo"]
+
+# for q in s:
+#     print(q)
+
+# PLACEHOLDER = "[name]"
+
+
+# with open("./day_24/names.txt") as names_file:
+    
+#     names = names_file.readlines()
+#     print(names)
+
+# with open("./day_24/letter.txt") as letter_file:
+#     letter_contents = letter_file.read()
+#     print(letter_contents)
+#     for name in names:
+#         stripped_name = name.strip()
+#         new_letter = letter_contents.replace(PLACEHOLDER, stripped_name)
+#         print(name)
+#         with open(f"./day_24/letter_{stripped_name}.txt", mode="w") as completed_letter:
+#             completed_letter.write(new_letter)
+
+
+
+
+#------------------------------------day 24 end ---------------------------------
+
 
 
 #------------------------------------day 25 csv start---------------------------------
@@ -1789,9 +2128,16 @@ print(Student.get_numberStu())
 
 
 # data=pandas.DataFrame(lest)
+# yy=data.to_dict()
+# print(yy)
+
 # data.to_csv("data.csv")
 # rr=pandas.read_csv("data.csv",index_col=[0])
 
+
+
+
+# print(rr[["spec","student"]])
 # def con(csv_path,json_path):
 #     js=[]
 
