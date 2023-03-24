@@ -14,15 +14,14 @@ import pandas
 
 # #random.sample give it the list and how many char to take from the list 
 ###### password generator#######
-lower="qwertyuiopasdfghjklzxcvbnm"
-upper="QWERTYUIOPASDFGHJKLZXCVBNM"
-num="1234567890"
-symbols="[]{;/.<()-_=+`~|@#$%^&*}"
-all=lower+upper+num+symbols
-length=16
-password=random.sample(all,length)
-print(password)
-
+# lower="qwertyuiopasdfghjklzxcvbnm"
+# upper="QWERTYUIOPASDFGHJKLZXCVBNM"
+# num="1234567890"
+# symbols="[]{;/.<()-_=+`~|@#$%^&*}"
+# all=lower+upper+num+symbols
+# length=20
+# password="".join(random.sample(all,length))
+# print(password)
 ###### password generator#######
 
 
@@ -1858,12 +1857,13 @@ print(password)
 # ww=[]
 # qq=[["Dfdf","TY","URT"],["Dfsdsdddf","sfsfsfTY","URsfsfsfT"]]
 # cc=qq[0][0]="nemo"
-# print(qq)
+# #print(qq)
 # for l in qq:
 #   for rr in l:
 #     if rr == "TY":
 #       ww.append(rr)
 #       #ww.append(l)
+#       print(l)
 # print(ww)
     # for a in l:
 #         g=l[1]
@@ -2120,24 +2120,84 @@ print(password)
 #     {"student":"nmr" ,
 #     "score":"B+",
 #     "GPA":4.88,
-#     "spec":"information technology",
+#     "spec":"computer scince",
 #     "top3grade":["C","A+","B"]
     
 #     },
 # ]
 
 
+# data_dict={
+#     "students":["nemo","anmar","eerr"],
+#     "scores":[70,80,90]
+# }
+
 # data=pandas.DataFrame(lest)
-# yy=data.to_dict()
-# print(yy)
-
-# data.to_csv("data.csv")
-# rr=pandas.read_csv("data.csv",index_col=[0])
 
 
+# print(data)
+#yy=data.to_dict()
+#print(yy)
+
+#data.to_csv("data.csv")
+#rr=pandas.read_csv("data.csv",index_col=[0])
+# li=rr["score"].to_list()
+# ss=rr["score"]
+# print(ss)
+# print(li)
 
 
-# print(rr[["spec","student"]])
+##########################
+# data=pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+# qray=len(data[data["Primary Fur Color"]=="Gray"])
+# red=len(data[data["Primary Fur Color"]=="Cinnamon"])
+# black=len(data[data["Primary Fur Color"]=="Black"])
+
+# for_dict={
+#     "fur color":["qray","red","black"],
+#     "count":[qray,red,black]
+# }
+
+# df=pandas.DataFrame(for_dict)
+# df.to_csv("animals.csv")
+# print(df)
+
+
+# print(black)
+# print(red)
+# print(qray)
+
+
+##########################
+# df = pandas.DataFrame(
+#     [["a", "b"], ["c", "d"]],
+#     index=["row 1", "row 2"],
+#     columns=["col 1", "col 2"],
+# )
+# result = df.to_json(orient="split")
+# parsed = json.loads(result)
+# hh=json.dumps(parsed, indent=4)  
+# print(parsed)
+# print(hh)
+
+# #you can get the column with two methods
+# #method number 1
+#print(rr["spec"])
+# #method number 2
+#print(rr.spec)
+
+
+# #get the data in row with two methods
+# # method num 1
+# print(rr[rr["spec"]=="information technology"])
+# # # method num 2
+# print(rr[rr.spec=="information technology"])
+# stu1=rr[rr.spec=="information technology"]
+# print(stu1.score)
+
+
+
+#print(rr[["spec","student"]])
 # def con(csv_path,json_path):
 #     js=[]
 
