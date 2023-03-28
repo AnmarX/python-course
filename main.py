@@ -2129,8 +2129,12 @@ import pandas
 
 # data_dict={
 #     "students":["nemo","anmar","eerr"],
-#     "scores":[70,80,90]
+#     "scores":[70,80,90],
+#     "subject":["cpit405","cpit490","cpit252"]
 # }
+
+# ds=pandas.DataFrame(data_dict)
+# ds.to_csv("delete.csv")
 
 # data=pandas.DataFrame(lest)
 
@@ -2358,6 +2362,81 @@ import pandas
 
 # print(toread)
 #------------------------------------day 25 csv end---------------------------------
+
+
+
+
+#------------------------------------day 26 start---------------------------------
+
+#num=[1,2,3]
+# li=[n+1 for n in num]
+# print(li)
+
+#li2=[n for n in num if n >=2 ]
+#print(li2)
+
+
+#num=[1,1,2,3,5,8,13,21,34,55]
+# sq_num=[n*n for n in num]
+# print(sq_num)
+
+# num=[1,1,2,3,5,8,13,21,34,55]
+# results=[n for n in num if n % 2==0]
+# print(results)
+ 
+
+
+#names=["anmar","nemo","mclaren"] 
+# # # will get the values
+# for l in names:
+#     print(l)
+
+# new_dict={student:random.randint(1,100) for student in names}
+# #print(new_dict)
+
+# stu={student:score for (student,score) in new_dict.items() if score >= 50}
+# print(stu)
+
+#sentence="What is the Airspeed Velocity of an Unladen Swallow?"
+# d={sn:len(sn) for sn in sentence.split()}
+# print(d)
+
+# weather={
+# 'Monday': 53.6,
+# 'Tuesday': 57.2,
+# 'Wednesday': 59.0,
+# 'Thursday': 57.2,
+# 'Friday': 69.8,
+# 'Saturday': 71.6,
+# 'Sunday': 75.2
+# }
+# # #will only get the keys of the dict
+# # for n in weather:
+# #     print(n)
+# new={day:round((degree*9/5)+32) for (day,degree) in weather.items()}
+# print(new)
+
+
+# data_dict={
+#     "students":["nemo","anmar","eerr"],
+#     "scores":[70,80,90],
+#     "subject":["cpit405","cpit490","cpit252"]
+# }
+
+# testing=pandas.DataFrame(data_dict)
+
+# for (index,row) in testing.iterrows():
+#     if row.scores <= 80:
+#         print(row.students)
+    #print(row.students)
+
+
+
+
+#------------------------------------day 26 end---------------------------------
+
+
+
 
 #------------------------------------day 30 json start---------------------------------
 #///json.load , load file into a python object , json.loads load string into a python object
