@@ -20,6 +20,8 @@ import pandas
 # symbols="[]{;/.<()-_=+`~|@#$%^&*}"
 # all=lower+upper+num+symbols
 # length=20
+# # # .join will convert a list to a string and compain all the list values into one string
+# # # example "".join(["A","B","C"]) output ABC
 # password="".join(random.sample(all,length))
 # print(password)
 ###### password generator#######
