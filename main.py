@@ -27,9 +27,23 @@ import pandas
 ###### password generator#######
 
 
+# def single(s):
+#     counts={}
+
+#     for c in s:
+#         counts[c]=counts.get(c,0)+1
+    
+#     for c in counts:
+#         if counts[c]==1:
+#             return c
+    
+
+# print(single("aabbccq"))
 
 
-
+# di={1:"nemo",2:"anmar"}
+# for i in di:
+#     print(i)
 #### parsing data ####
 # def parse(data):
 #     #data = "JEZA425333, 4263 Otbah Ibn Aaed,qqqq" 
