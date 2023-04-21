@@ -1027,7 +1027,7 @@ import pandas
 # print(nmr[:1]) # only the first element 
 # print(nmr[-1:])# only the last element 
 # print(nmr[:-1]) # all the elemtns except the last element  
-
+# to get the last key of a dict use list(dict.keys())[-1:]
 # import random
 
 
@@ -2408,7 +2408,7 @@ import pandas
 #     print(l)
 
 # new_dict={student:random.randint(1,100) for student in names}
-# #print(new_dict)
+# print(new_dict)
 
 # stu={student:score for (student,score) in new_dict.items() if score >= 50}
 # print(stu)
@@ -2438,18 +2438,44 @@ import pandas
 #     "scores":[70,80,90],
 #     "subject":["cpit405","cpit490","cpit252"]
 # }
+# xx=input("enter name")
+# for ah in data_dict:
+#     if ah =="students":
+#         namess=[oo for oo in data_dict[ah]]
+#         print(namess)
+#         namess.append(xx)
+#         print(namess)
 
-# testing=pandas.DataFrame(data_dict)
+#         break
 
+
+    
+
+#testing=pandas.DataFrame(data_dict)
+#print(testing)
 # for (index,row) in testing.iterrows():
 #     if row.scores <= 80:
 #         print(row.students)
     #print(row.students)
 
 
+# li=[["nemo","nemo2","nemo3"],["anmar"]]
 
+# for q in li[0]:
+#     if q=="nemo":
+#         print(q)
+    
 
 #------------------------------------day 26 end---------------------------------
+
+
+
+#------------------------------------day 27 start---------------------------------
+
+
+
+
+#------------------------------------day 27 end---------------------------------
 
 
 
