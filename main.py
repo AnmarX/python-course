@@ -2437,8 +2437,9 @@ import pandas
 #     "students":["nemo","anmar","eerr"],
 #     "scores":[70,80,90],
 #     "subject":["cpit405","cpit490","cpit252"]
+
 # }
-# xx=input("enter name")
+# xx=input("enter name: ")
 # for ah in data_dict:
 #     if ah =="students":
 #         namess=[oo for oo in data_dict[ah]]
@@ -2449,6 +2450,24 @@ import pandas
 #         break
 
 
+# student_records = { 
+#     1:{
+#         'john' : {'maths': 80, 'science': 90, 'english': 75},
+#         'amy' : {'maths': 85, 'science': 92, 'english': 88},
+#         'jessica' : {'maths': 90, 'science': 94, 'english': 76}
+#     },
+#     2:{
+#         'john' : {'maths': 80, 'science': 90, 'english': 75},
+#         'amy' : {'maths': 85, 'science': 92, 'english': 88},
+#         'jessica' : {'maths': 90, 'science': 94, 'english': 76}}
+
+# }
+
+
+# qq=[1,2],[5,6]
+
+# for i in student_records:
+#     print(student_records[i]["amy"]["science"])
     
 
 #testing=pandas.DataFrame(data_dict)
@@ -2471,13 +2490,169 @@ import pandas
 
 
 #------------------------------------day 27 start---------------------------------
-# import tkinter
-# win=tkinter.Tk()
+
+####### ANGELA CODE######
+# from tkinter import *
+
+# #Creating a new window and configurations
+# window = Tk()
+# window.title("Widget Examples")
+# window.minsize(width=500, height=500)
+
+# #Labels
+# label = Label(text="This is old text")
+# label.config(text="This is new text")
+# label.pack()
+
+# #Buttons
+# def action():
+#     print("Do something")
+
+# #calls action() when pressed
+# button = Button(text="Click Me", command=action)
+# button.pack()
+
+# #Entries
+# entry = Entry(width=30)
+# #Add some text to begin with
+# entry.insert(END, string="Some text to begin with.")
+# #Gets text in entry
+# print(entry.get())
+# entry.pack()
+
+# #Text
+# text = Text(height=5, width=30)
+# #Puts cursor in textbox.
+# text.focus()
+# #Adds some text to begin with.
+# text.insert(END, "Example of multi-line text entry.")
+# #Get's current value in textbox at line 1, character 0
+# print(text.get("1.0", END))
+# text.pack()
+
+# #Spinbox
+# def spinbox_used():
+#     #gets the current value in spinbox.
+#     print(spinbox.get())
+# spinbox = Spinbox(from_=0, to=10, width=5, command=spinbox_used)
+# spinbox.pack()
+
+# #Scale
+# #Called with current scale value.
+# def scale_used(value):
+#     print(value)
+# scale = Scale(from_=0, to=100, command=scale_used)
+# scale.pack()
+
+# #Checkbutton
+# def checkbutton_used():
+#     #Prints 1 if On button checked, otherwise 0.
+#     print(checked_state.get())
+# #variable to hold on to checked state, 0 is off, 1 is on.
+# checked_state = IntVar()
+# checkbutton = Checkbutton(text="Is On?", variable=checked_state, command=checkbutton_used)
+# checked_state.get()
+# checkbutton.pack()
+
+# #Radiobutton
+# def radio_used():
+#     print(radio_state.get())
+# #Variable to hold on to which radio button value is checked.
+# radio_state = IntVar()
+# radiobutton1 = Radiobutton(text="Option1", value=1, variable=radio_state, command=radio_used)
+# radiobutton2 = Radiobutton(text="Option2", value=2, variable=radio_state, command=radio_used)
+# radiobutton1.pack()
+# radiobutton2.pack()
+
+
+# #Listbox
+# def listbox_used(event):
+#     # Gets current selection from listbox
+#     print(listbox.get(listbox.curselection()))
+
+# listbox = Listbox(height=4)
+# fruits = ["Apple", "Pear", "Orange", "Banana"]
+# for item in fruits:
+#     listbox.insert(fruits.index(item), item)
+# listbox.bind("<<ListboxSelect>>", listbox_used)
+# listbox.pack()
+# window.mainloop()
+# ####### ANGELA CODE######
+
+
+
+# ####### ANGELA CODE######
+
+# from tkinter import *
+
+
+# def button_clicked():
+#     print("I got clicked")
+#     new_text = input.get()
+#     my_label.config(text=new_text)
+
+
+# window = Tk()
+# window.title("My First GUI Program")
+# window.minsize(width=500, height=300)
+# window.config(padx=100, pady=200)
+
+# #Label
+# my_label = Label(text="I Am a Label", font=("Arial", 24, "bold"))
+# my_label.config(text="New Text")
+# my_label.grid(column=0, row=0)
+# my_label.config(padx=50, pady=50)
+
+# #Button
+# button = Button(text="Click Me", command=button_clicked)
+# button.grid(column=1, row=1)
+
+# new_button = Button(text="New Button")
+# new_button.grid(column=2, row=0)
+
+# #Entry
+# input = Entry(width=10)
+# print(input.get())
+# input.grid(column=3, row=2)
+
+
+# window.mainloop()
+####### ANGELA CODE######
+
+
+
+
+# from tkinter import * 
+# win=Tk()
 # win.title("first GUI program")
 # win.minsize(width=500 , height=400)
 
-# label=tkinter.Label(text="label",font=("arial",24,"bold"))
-# label.pack(side="bottom")
+# label=Label(text="label",font=("arial",24,"bold"))
+# label.pack(side="top")
+
+# #label.config(text="the newest")
+# # label["text"]="new text"
+
+# num=0
+# def button_click():
+#     global num
+#     num+=1
+#     print("i got clicked")
+#     the_input=input.get()
+#     label.config(text=f"i got clicked for the # time ={num} ,the changed name {the_input}")
+   
+    
+
+# button=Button(text="click me",command=button_click)
+# button.pack()
+
+# input=Entry(width=40,)
+# input.pack()
+# # #the print wont work because the line is excuted before entering any input
+# #print(input.get())
+
+# text=Text(height=5,width=50) 
+# text.pack()
 
 # win.mainloop()
 
@@ -2520,9 +2695,9 @@ import pandas
 # foo2(first=1,second=2,third=3)
 
 
-def foo(*key,a=10,**arg):
-    print(key,arg)
-foo(2,3,4,one=1)
+# def foo(*key,a=10,**arg):
+#     print(key,arg)
+# foo(2,3,4,one=1)
 
 
 # class car:
@@ -2539,8 +2714,207 @@ foo(2,3,4,one=1)
 # print(c.make)
 
 
-
 #------------------------------------day 27 end---------------------------------
+
+
+
+
+
+#------------------------------------day 28 start---------------------------------
+#######ANGELA#######
+# from tkinter import *
+# import math
+# # ---------------------------- CONSTANTS ------------------------------- #
+# PINK = "#e2979c"
+# RED = "#e7305b"
+# GREEN = "#9bdeac"
+# YELLOW = "#f7f5dd"
+# FONT_NAME = "Courier"
+# WORK_MIN = 1
+# SHORT_BREAK_MIN = 5
+# LONG_BREAK_MIN = 20
+# reps = 0
+# timer = None
+
+# # ---------------------------- TIMER RESET ------------------------------- # 
+
+# def reset_timer():
+#     window.after_cancel(timer)
+#     canvas.itemconfig(timer_text, text="00:00")
+#     title_label.config(text="Timer")
+#     check_marks.config(text="")
+#     global reps
+#     reps = 0
+
+
+# # ---------------------------- TIMER MECHANISM ------------------------------- # 
+
+# def start_timer():
+#     global reps
+#     reps += 1
+
+#     work_sec = WORK_MIN * 60
+#     short_break_sec = SHORT_BREAK_MIN * 60
+#     long_break_sec = LONG_BREAK_MIN * 60
+
+#     if reps % 8 == 0:
+#         count_down(long_break_sec)
+#         title_label.config(text="Break", fg=RED)
+#     elif reps % 2 == 0:
+#         count_down(short_break_sec)
+#         title_label.config(text="Break", fg=PINK)
+#     else:
+#         count_down(work_sec)
+#         title_label.config(text="Work", fg=GREEN)
+
+
+# # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
+# def count_down(count):
+
+#     count_min = math.floor(count / 60)
+#     count_sec = count % 60
+#     if count_sec < 10:
+#         count_sec = f"0{count_sec}"
+
+#     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
+#     if count > 0:
+#         global timer
+#         timer = window.after(1000, count_down, count - 1)
+#     else:
+#         start_timer()
+#         marks = ""
+#         work_sessions = math.floor(reps/2)
+#         for _ in range(work_sessions):
+#             marks += "✔"
+#         check_marks.config(text=marks)
+
+
+# # ---------------------------- UI SETUP ------------------------------- #
+# window = Tk()
+# window.title("Pomodoro")
+# window.config(padx=100, pady=50, bg=YELLOW)
+
+
+# title_label = Label(text="Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 50))
+# title_label.grid(column=1, row=0)
+
+# canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
+# tomato_img = PhotoImage(file="tomato.png")
+# canvas.create_image(100, 112, image=tomato_img)
+# timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+# canvas.grid(column=1, row=1)
+
+# start_button = Button(text="Start", highlightthickness=0, command=start_timer)
+# start_button.grid(column=0, row=2)
+
+# reset_button = Button(text="Reset", highlightthickness=0, command=reset_timer)
+# reset_button.grid(column=2, row=2)
+
+# check_marks = Label(fg=GREEN, bg=YELLOW)
+# check_marks.grid(column=1, row=3)
+
+
+
+
+
+
+# window.mainloop()
+#######ANGELA#######
+
+#------------------------------------day 28 end---------------------------------
+
+
+
+
+
+#------------------------------------day 29 start---------------------------------
+########ANGELA########
+# from tkinter import *
+# from tkinter import messagebox
+# from random import choice, randint, shuffle
+# import pyperclip
+
+# # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+
+# #Password Generator Project
+# def generate_password():
+#     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+#     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+#     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+#     password_letters = [choice(letters) for _ in range(randint(8, 10))]
+#     password_symbols = [choice(symbols) for _ in range(randint(2, 4))]
+#     password_numbers = [choice(numbers) for _ in range(randint(2, 4))]
+
+#     password_list = password_letters + password_symbols + password_numbers
+#     shuffle(password_list)
+
+#     password = "".join(password_list)
+#     password_entry.insert(0, password)
+#     pyperclip.copy(password)
+
+# # ---------------------------- SAVE PASSWORD ------------------------------- #
+# def save():
+
+#     website = website_entry.get()
+#     email = email_entry.get()
+#     password = password_entry.get()
+
+#     if len(website) == 0 or len(password) == 0:
+#         messagebox.showinfo(title="Oops", message="Please make sure you haven't left any fields empty.")
+#     else:
+#         is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} "
+#                                                       f"\nPassword: {password} \nIs it ok to save?")
+#         if is_ok:
+#             with open("data.txt", "a") as data_file:
+#                 data_file.write(f"{website} | {email} | {password}\n")
+#                 website_entry.delete(0, END)
+#                 password_entry.delete(0, END)
+
+
+# # ---------------------------- UI SETUP ------------------------------- #
+
+# window = Tk()
+# window.title("Password Manager")
+# window.config(padx=50, pady=50)
+
+# canvas = Canvas(height=200, width=200)
+# logo_img = PhotoImage(file="logo.png")
+# canvas.create_image(100, 100, image=logo_img)
+# canvas.grid(row=0, column=1)
+
+# #Labels
+# website_label = Label(text="Website:")
+# website_label.grid(row=1, column=0)
+# email_label = Label(text="Email/Username:")
+# email_label.grid(row=2, column=0)
+# password_label = Label(text="Password:")
+# password_label.grid(row=3, column=0)
+
+# #Entries
+# website_entry = Entry(width=35)
+# website_entry.grid(row=1, column=1, columnspan=2)
+# website_entry.focus()
+# email_entry = Entry(width=35)
+# email_entry.grid(row=2, column=1, columnspan=2)
+# email_entry.insert(0, "angela@gmail.com")
+# password_entry = Entry(width=21)
+# password_entry.grid(row=3, column=1)
+
+# # Buttons
+# generate_password_button = Button(text="Generate Password", command=generate_password)
+# generate_password_button.grid(row=3, column=2)
+# add_button = Button(text="Add", width=36, command=save)
+# add_button.grid(row=4, column=1, columnspan=2)
+
+# window.mainloop()
+########ANGELA########
+
+
+
+#------------------------------------day 29 end---------------------------------
+
+
 
 
 
