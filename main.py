@@ -2471,7 +2471,72 @@ import pandas
 
 
 #------------------------------------day 27 start---------------------------------
+# import tkinter
+# win=tkinter.Tk()
+# win.title("first GUI program")
+# win.minsize(width=500 , height=400)
 
+# label=tkinter.Label(text="label",font=("arial",24,"bold"))
+# label.pack(side="bottom")
+
+# win.mainloop()
+
+
+# #how to make default value
+# def foo(a=3,b=6,c=9):
+#     print(a,b,c)
+# foo(a=10)
+
+
+# #with only one * it will return type vale of a tuple 
+# def foo(*args):
+#     print("first argument",args[0])
+#     sum=0
+#     for n in args:
+#         sum+=n
+#     return sum
+#     #print(args)
+# print(foo(9,1,5,6,7,8,5,4,4,7,8))
+
+# #with double ** it will return a tuple 
+# def myFun(**kwargs):
+#     for key, value in kwargs.items():
+#         print("%s == %s" % (key, value))
+# myFun(first='Geeks', mid='for', last='Geeks')
+
+
+# def concatenate(**kwargs):
+#     print(kwargs)
+#     result = ""
+#     # Iterating over the Python kwargs dictionary
+#     for arg in kwargs.values():
+#         result += arg
+#     return result
+# print(concatenate(a="Real", b="Python", c="Is", d="Great", e="!"))
+ 
+
+# def foo2(**word):
+#     print(word)
+# foo2(first=1,second=2,third=3)
+
+
+def foo(*key,a=10,**arg):
+    print(key,arg)
+foo(2,3,4,one=1)
+
+
+# class car:
+#     def __init__(self,**key) -> None:
+#         # #if the attibute doesn't have value it will return error 
+#         # #self.make=key["make"]
+#         # #self.make=key["model"]
+
+#         # #but using get if the attribute is empty it will return none
+#         self.make=key.get("make")
+#         self.model=key.get("model")
+
+# c=car(make="nissan")
+# print(c.make)
 
 
 
