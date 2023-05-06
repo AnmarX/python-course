@@ -2440,12 +2440,12 @@ import pandas
 # print(new)
 
 
-# data_dict={
-#     "students":["nemo","anmar","eerr"],
-#     "scores":[70,80,90],
-#     "subject":["cpit405","cpit490","cpit252"]
+data_dict={
+    "students":["nemo","anmar","eerr"],
+    "scores":[70,80,90],
+    "subject":["cpit405","cpit490","cpit252"]
 
-# }
+}
 # xx=input("enter name: ")
 # for ah in data_dict:
 #     if ah =="students":
@@ -2477,12 +2477,12 @@ import pandas
 #     print(student_records[i]["amy"]["science"])
     
 
-#testing=pandas.DataFrame(data_dict)
-#print(testing)
+# testing=pandas.DataFrame(data_dict)
+# print(testing)
 # for (index,row) in testing.iterrows():
 #     if row.scores <= 80:
 #         print(row.students)
-    #print(row.students)
+#     print(row.students)
 
 
 # li=[["nemo","nemo2","nemo3"],["anmar"]]
@@ -2699,7 +2699,7 @@ import pandas
 
 # def foo2(**word):
 #     print(word)
-# foo2(first=1,second=2,third=3)
+# foo2(first="dd",second=2,third=3)
 
 
 # def foo(*key,a=10,**arg):
@@ -2938,8 +2938,57 @@ import pandas
 
 
 
+# fruits=["apple","pear","orange"]
+# def make_pie(index):
+#     try:
+#         fruit=fruits[index]
+#     except IndexError:
+#         print("fruit pie")
+#     else:
+#         print(fruit+" pie")
+# make_pie(2)
 
 
+# facebook=[
+#     {"likes":21,"comments":2},
+#     {"likes":13,"comments":2,"shares":1},
+#     {"likes":33,"comments":8,"shares":3},
+#     {"comments":4,"shares":2},
+#      {"comments":1,"shares":1},
+#       {"likes":33,"comments":8}
+# ]
+# total_likes=0
+# for post in facebook:
+#     try:
+#         total_likes+=post["likes"]
+#     except KeyError:
+#         pass
+# print(total_likes)
+
+
+
+  
+# data=pandas.read_csv("nato_phonetic_alphabet.csv")
+# #print(data)
+# dd={row.letter:row.code for (index,row) in data.iterrows()}
+# # #this will work too but the previous one is for pandas library tomrowor
+# #dd={index:row for (index,row) in data.items()}
+# print(dd)
+# x=input("write name: ").upper()
+# ii=[["a","e","t"],["d","i"]]
+# aa=["a","e","t"]
+# print(aa[1])
+# for q in aa:
+#     print(q)
+# for n in ii:
+#     print(n)
+#qq=[dd[letter] for letter in x]
+#print(qq) 
+
+
+# my_dict = {'apple': 2, 'banana': 3, 'cherry': 1, 'orange': 4}
+# new_dict = {key.upper(): value for key,value in my_dict.items() if key.endswith('a')}
+# print(new_dict)  # Output: {'APPLE': 2}
 
 
 
