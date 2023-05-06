@@ -12,6 +12,13 @@ from ast import literal_eval
 from random import randint
 import pandas
 
+
+# #what join() function do
+# l=["nemo","anmar"]
+# aa="#".join(l)
+# print(aa)
+
+
 # #random.sample give it the list and how many char to take from the list 
 ###### password generator#######
 # lower="qwertyuiopasdfghjklzxcvbnm"
@@ -2910,16 +2917,32 @@ import pandas
 # window.mainloop()
 ########ANGELA########
 
-
-
 #------------------------------------day 29 end---------------------------------
 
 
 
 
-
-
 #------------------------------------day 30 json start---------------------------------
+
+# try:
+#     file=open("./0-30/data.csv")
+# except:
+#     file=open("./0-30/data.csv")
+#     print("if the try had an error")
+# # except FileNotFoundError:
+# #     print("file not found")
+# else:
+#     print("nothing worng excuted")
+# finally:
+#     raise TypeError("made up error even if their isn't any error")
+
+
+
+
+
+
+
+
 #///json.load , load file into a python object , json.loads load string into a python object
 #///json.dump , json.dump python object to a json file , json.dumps a python object into a json string
 
