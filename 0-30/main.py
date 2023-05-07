@@ -11,7 +11,7 @@ import csv
 from ast import literal_eval
 from random import randint
 import pandas
-
+import requests
 
 # #what join() function do
 # l=["nemo","anmar"]
@@ -2992,6 +2992,65 @@ data_dict={
 
 
 
+
+
+response = requests.get('https://api.github.com/events')
+# # input / {"name": "John", "age": 30, "city": "New York"} python object 
+# #json.dumps a python object into a json formatted string
+# #json.dumps() to serialize a Python dictionary to a JSON formatted string
+data=json.dumps(response.text)
+print(data)
+# # output / '{"name": "John", "age": 30, "city": "New York"}' json string
+
+# # input / '{"name": "John", "age": 30, "city": "New York"}' json string
+# #json.loads load string into a python object
+# #To deserialize a JSON formatted string to a python object
+data2=json.loads(data)
+print(data2)
+# # output / {"name": "John", "age": 30, "city": "New York"} python object 
+
+
+
+
+
+# #json.dump() is used to write a Python object (such as a dictionary, list, or string) to a JSON-formatted file or network stream. 
+my_dict = {"name": "John", "age": 30, "city": "New York"}
+# Write my_dict to a JSON-formatted file
+with open("my_file.json", "w") as f:
+    json.dump(my_dict, f)
+
+
+
+# #On the other hand, json.load() is used to read a JSON-formatted file or network stream into a Python object.
+# Read JSON-formatted data from a file
+with open("my_file.json", "r") as f:
+    my_dict = json.load(f)
+
+print(my_dict)
+
+
+
+# response = requests.get('https://api.github.com/events')
+# # convert the response to JSON format
+# json_data = json.loads(response.text)
+# # print the JSON data
+# print(json_data)
+
+
+
+
+
+
+# make a request to the API
+# response = requests.get('https://api.github.com/events')
+# # open a file in write mode
+# with open('posts.json', 'w') as file:
+#     # write the response text to the file as JSON
+#     json.dump(response.json(), file,indent=2)
+# with open('posts.json',"r") as file:
+#     print(json.load(file))
+
+
 #///json.load , load file into a python object , json.loads load string into a python object
 #///json.dump , json.dump python object to a json file , json.dumps a python object into a json string
 
@@ -3007,10 +3066,11 @@ data_dict={
 # print(r.text)
 
 
-# #/// first you get the info from an api as a json
+#/// first you get the info from an api as a json
 # r = requests.get('https://api.github.com/events')
+# print(type(r))
 # js=r.json()
-# print(type(js))
+# # print(type(js))
 # #///this is wrong data=json.load(js)
 # #///second put the information on file 
 # with open("new_file.json","w") as aq:
