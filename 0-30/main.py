@@ -2922,7 +2922,7 @@ data_dict={
 
 
 
-#------------------------------------day 30 json start---------------------------------
+#------------------------------------day 30 start---------------------------------
 
 # try:
 #     file=open("./0-30/data.csv")
@@ -2968,12 +2968,14 @@ data_dict={
 
 
   
-# data=pandas.read_csv("nato_phonetic_alphabet.csv")
-# #print(data)
-# dd={row.letter:row.code for (index,row) in data.iterrows()}
-# # #this will work too but the previous one is for pandas library tomrowor
-# #dd={index:row for (index,row) in data.items()}
-# print(dd)
+data=pandas.read_csv("nato_phonetic_alphabet.csv")
+# print(data)
+# #the index is the number on the left (row)
+
+dd={row.letter:row.code for (index,row) in data.iterrows()}
+#this will work too but the previous one is for pandas library tomrowor
+#dd={index:row for (index,row) in data.items()}
+print(dd)
 # x=input("write name: ").upper()
 # ii=[["a","e","t"],["d","i"]]
 # aa=["a","e","t"]
@@ -2994,19 +2996,19 @@ data_dict={
 
 
 
-response = requests.get('https://api.github.com/events')
+#response = requests.get('https://api.github.com/events')
 # # input / {"name": "John", "age": 30, "city": "New York"} python object 
 # #json.dumps a python object into a json formatted string
 # #json.dumps() to serialize a Python dictionary to a JSON formatted string
-data=json.dumps(response.text)
-print(data)
+# data=json.dumps(response.text)
+# print(data)
 # # output / '{"name": "John", "age": 30, "city": "New York"}' json string
 
 # # input / '{"name": "John", "age": 30, "city": "New York"}' json string
 # #json.loads load string into a python object
 # #To deserialize a JSON formatted string to a python object
-data2=json.loads(data)
-print(data2)
+# data2=json.loads(data)
+# print(data2)
 # # output / {"name": "John", "age": 30, "city": "New York"} python object 
 
 
@@ -3014,19 +3016,19 @@ print(data2)
 
 
 # #json.dump() is used to write a Python object (such as a dictionary, list, or string) to a JSON-formatted file or network stream. 
-my_dict = {"name": "John", "age": 30, "city": "New York"}
+#my_dict = {"name": "John", "age": 30, "city": "New York"}
 # Write my_dict to a JSON-formatted file
-with open("my_file.json", "w") as f:
-    json.dump(my_dict, f)
+# with open("my_file.json", "w") as f:
+#     json.dump(my_dict, f)
 
 
 
 # #On the other hand, json.load() is used to read a JSON-formatted file or network stream into a Python object.
 # Read JSON-formatted data from a file
-with open("my_file.json", "r") as f:
-    my_dict = json.load(f)
+# with open("my_file.json", "r") as f:
+#     my_dict = json.load(f)
 
-print(my_dict)
+# print(my_dict)
 
 
 
