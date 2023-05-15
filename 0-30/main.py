@@ -2968,14 +2968,14 @@ data_dict={
 
 
   
-data=pandas.read_csv("nato_phonetic_alphabet.csv")
-# print(data)
-# #the index is the number on the left (row)
+# data=pandas.read_csv("nato_phonetic_alphabet.csv")
+# # print(data)
+# # #the index is the number on the left (row)
 
-dd={row.letter:row.code for (index,row) in data.iterrows()}
-#this will work too but the previous one is for pandas library tomrowor
-#dd={index:row for (index,row) in data.items()}
-print(dd)
+# dd={row.letter:row.code for (index,row) in data.iterrows()}
+# #this will work too but the previous one is for pandas library tomrowor
+# #dd={index:row for (index,row) in data.items()}
+# print(dd)
 # x=input("write name: ").upper()
 # ii=[["a","e","t"],["d","i"]]
 # aa=["a","e","t"]
@@ -3043,7 +3043,7 @@ print(dd)
 
 
 
-# make a request to the API
+# #make a request to the API
 # response = requests.get('https://api.github.com/events')
 # # open a file in write mode
 # with open('posts.json', 'w') as file:
