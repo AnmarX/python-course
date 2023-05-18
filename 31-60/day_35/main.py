@@ -16,15 +16,12 @@ from twilio.rest import Client
 client = Client(account_sid, auth_token)
 
 message = client.messages.create(
-    body='nothing arrived',
+    body='last one',
     from_=twilio_phone,  # your Twilio phone number
     to= phone # recipient's phone number
 )
 print(message.status)
 print(message.sid)
-
-
-
 
 
 # parms={
