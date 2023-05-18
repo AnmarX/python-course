@@ -2996,12 +2996,13 @@ data_dict={
 
 
 
-#response = requests.get('https://api.github.com/events')
-# # input / {"name": "John", "age": 30, "city": "New York"} python object 
-# #json.dumps a python object into a json formatted string
-# #json.dumps() to serialize a Python dictionary to a JSON formatted string
-# data=json.dumps(response.text)
-# print(data)
+response = requests.get('https://api.github.com/events')
+# input / {"name": "John", "age": 30, "city": "New York"} python object 
+#json.dumps a python object into a json formatted string
+#json.dumps() to serialize a Python dictionary to a JSON formatted string
+aa=response.json()
+data=json.dumps(aa)
+print(data)
 # # output / '{"name": "John", "age": 30, "city": "New York"}' json string
 
 # # input / '{"name": "John", "age": 30, "city": "New York"}' json string

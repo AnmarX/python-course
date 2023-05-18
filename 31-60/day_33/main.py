@@ -8,9 +8,9 @@ from datetime import datetime
 import smtplib
 import time
 
-print("start")
-time.sleep(10)
-print("end")
+# print("start")
+# time.sleep(10)
+# print("end")
 
 
 ########ANGELA#########
@@ -116,17 +116,19 @@ print("end")
 # print(q)
 
 
-# response = requests.get('https://api.github.com/events')
-# response.raise_for_status()
-# if response.status_code==200:
-#     print("done")
+response = requests.get('https://api.github.com/events')
+response.raise_for_status()
+if response.status_code==200:
+    print("done")
 # data = response.json()[0]
 # print(data)
-# data2 = response.json()
+data2 = response.json()
 # # #this will generate an error for some reason the endpoint will generate an erorr
 # print(data2)
-# q=json.dumps(data2)
-# print(q)
+
+q=json.dumps(data2)
+# b=json.loads(data2)
+print(q)
 
 
 # response = requests.get('https://api.github.com/events')
