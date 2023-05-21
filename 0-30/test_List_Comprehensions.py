@@ -65,3 +65,16 @@ new_set = (var+3 for var in given_list)
 
 for var1 in new_set:
    print(var1, end=" ")
+#===============================
+# a=(1,2)
+# g=a[0]=4
+# print(g)
+
+
+
+# li=[[j for j in range(2)if a %2==0]  for a in range(10) if a %2==0]
+# print(li)
+
+
+li=[[j for j in range(5)] for a in range(10)]
+print(li)
