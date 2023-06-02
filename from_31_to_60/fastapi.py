@@ -1,4 +1,4 @@
-'''server side'''
+'''server side sending on the header'''
 
 
 from fastapi import FastAPI, HTTPException, Header
@@ -21,7 +21,7 @@ async def protected_endpoint(api_key: str = Header(...)):
 
 import requests
 
-'''client side'''
+'''client side sending on the header'''
 # Base URL of the FastAPI server
 base_url = "http://localhost:8000"
 
@@ -41,3 +41,54 @@ if response.status_code == 200:
 else:
     # Error response
     print("Error:", response.text)
+
+
+
+#########################################################
+
+
+'''server side sending on the body'''
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+# Example Pydantic model for the data in the request body
+class User(BaseModel):
+    username: str
+    email: str
+
+# Endpoint to receive and process the data in the request body
+@app.post("/create_user")
+async def create_user(user: User):
+    # Access the data in the request body through the 'user' parameter
+    # Perform any necessary operations with the received data
+    # For demonstration purposes, let's just return the received user data
+    return {"user": user}
+
+
+
+
+'''client side sending on the body'''
+import requests
+
+# Base URL of the FastAPI server
+base_url = "http://localhost:8000"
+
+# Example data to be sent in the request body
+data = {
+    "username": "john_doe",
+    "email": "john.doe@example.com"
+}
+
+# Send the POST request with data in the request body to the FastAPI server
+response = requests.post(f"{base_url}/create_user", json=data)
+
+# Check the response status code
+if response.status_code == 200:
+    # Successful response
+    result = response.json()
+    print("User created successfully:", result)
+else:
+    # Error response
+    print("Error creating user:", response.text)
