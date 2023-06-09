@@ -7,7 +7,22 @@ from selenium.common.exceptions import NoSuchElementException
 
 chrome_driver_path="D:\chrome_driver\chromedriver.exe"
 driver=webdriver.Chrome(executable_path=chrome_driver_path)
-driver.get("https://www.python.org/")
+driver.get("https://www.google.com/webhp?authuser=1")
+driver.fullscreen_window()
+search=driver.find_element(by.ID,"APjFqb")
+time.sleep(3)
+search.send_keys("python")
+search.send_keys(Keys.ENTER)
+time.sleep(5)
+
+a=driver.find_element(by.CSS_SELECTOR,".yuRUbf a h3")
+a.click()
+time.sleep(3)
+
+k=driver.find_element(by.ID,"id-search-field")
+k.send_keys("python")
+k.send_keys(Keys.ENTER)
+time.sleep(3)
 
 
 
@@ -15,16 +30,14 @@ driver.get("https://www.python.org/")
 
 
 
+###########ANGELA########## 
+#https://gist.github.com/angelabauer/affb3ce61bc79ada90dea26052c27c2b
+###########ANGELA##########
 
 
-
-
-
-
-
-
-
-
+# chrome_driver_path="D:\chrome_driver\chromedriver.exe"
+# driver=webdriver.Chrome(executable_path=chrome_driver_path)
+# driver.get("https://www.python.org/")
 
 # def get_index(date,index):
 #     first=date[index] 
