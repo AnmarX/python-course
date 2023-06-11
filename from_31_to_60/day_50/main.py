@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from time import sleep
 
+##############ANGELA###############
 # FB_EMAIL = YOUR FACEBOOK LOGIN EMAIL
 # FB_PASSWORD = YOUR FACEBOOK PASSWORD
 
@@ -58,3 +59,4 @@ for n in range(100):
             sleep(2)
 
 driver.quit()
+##############ANGELA###############
