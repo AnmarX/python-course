@@ -48,6 +48,8 @@ else:
 
 
 '''server side sending on the body'''
+# if you want some parms or body to de optional use None 
+# example: async def create_user(user: User=None):
 from fastapi import FastAPI
 from pydantic import BaseModel
 
