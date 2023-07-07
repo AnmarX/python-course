@@ -15,42 +15,42 @@ the_url="https://pixe.la/v1/users"
 user_parm={
     "token":token,
     "username":username,
-    "agreeTermsOfService":"yes",
-    "notMinor":"yes"
+    "agreeTermsOfService":"yes"
+    # "notMinor":"yes"
 
 
 }
-# res=requests.post(the_url,json=user_parm)
-# print(res.status_code)
-# print(res.text)
+res=requests.post(the_url,json=user_parm)
+print(res.status_code)
+print(res.text)
 
-graph_parm={
-    "id":graph_id,
-    "name":graph_name,
-    "unit":"Km",
-    "type":"int",
-    "color":"ajisai"
-}
+# graph_parm={
+#     "id":graph_id,
+#     "name":graph_name,
+#     "unit":"Km",
+#     "type":"int",
+#     "color":"ajisai"
+# }
 
-token_header={
-    "X-USER-TOKEN":user_parm["token"]
+# token_header={
+#     "X-USER-TOKEN":user_parm["token"]
 
-}
-graph_endpoint=f"{the_url}/{user_parm['username']}/graphs"
+# }
+# graph_endpoint=f"{the_url}/{user_parm['username']}/graphs"
 
-# res=requests.post(graph_endpoint,json=graph_parm,headers=token_header)
-# print(res.status_code)
-# print(res.text)
-today=datetime.now()
+# # res=requests.post(graph_endpoint,json=graph_parm,headers=token_header)
+# # print(res.status_code)
+# # print(res.text)
+# today=datetime.now()
 
-post_pixel_parm={
-    "date":today.strftime("%Y%m%d"),
-    "quantity":"7"
-}
+# post_pixel_parm={
+#     "date":today.strftime("%Y%m%d"),
+#     "quantity":"7"
+# }
 
-post_pixel=f"{graph_endpoint}/{graph_id}"
+# post_pixel=f"{graph_endpoint}/{graph_id}"
 
-# res=requests.post(post_pixel,headers=token_header,json=post_pixel_parm)
-# print(res.status_code)
-# print(res.text)
+# # res=requests.post(post_pixel,headers=token_header,json=post_pixel_parm)
+# # print(res.status_code)
+# # print(res.text)
 

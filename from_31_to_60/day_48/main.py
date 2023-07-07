@@ -105,23 +105,24 @@ time.sleep(3)
 
 
 
-# chrome_driver_path="D:\chrome_driver\chromedriver.exe"
-# driver=webdriver.Chrome(executable_path=chrome_driver_path)
+chrome_driver_path="D:\chrome_driver\chromedriver.exe"
+driver=webdriver.Chrome(executable_path=chrome_driver_path)
 
-# driver.get("https://www.amazon.sa/-/en/Keyboard-Membrane-Ultra-Compact-Waterproof-Computer/dp/B0BKLC5MTT/ref=sr_1_8?crid=3E53IML7SHZO2&keywords=keybord&qid=1685980161&sprefix=keybord%2Caps%2C215&sr=8-8")
-# price=driver.find_element(by.CLASS_NAME,"a-price-whole")
+driver.get("https://www.amazon.sa/-/en/Keyboard-Membrane-Ultra-Compact-Waterproof-Computer/dp/B0BKLC5MTT/ref=sr_1_8?crid=3E53IML7SHZO2&keywords=keybord&qid=1685980161&sprefix=keybord%2Caps%2C215&sr=8-8")
+price=driver.find_element(by.CLASS_NAME,"a-price-whole")
 
-# attibute=driver.find_element(by.ID,"add-to-cart-button")
-# val=attibute.get_attribute("value")
-
-## logo.size
-#driver.find_element(by.CSS_SELECTOR,)
-#driver.find_element(by.XPATH,)
+attibute=driver.find_element(by.ID,"add-to-cart-button")
+val=attibute.get_attribute("value")
+print(val)
+print(price.text)
+# logo.size
+# driver.find_element(by.CSS_SELECTOR,)
+# driver.find_element(by.XPATH,)
 # print("\n###################################")
 # print(attibute.tag_name)
 # print(val)
 # print(price.text)
 
 
-# driver.close()
-# driver.quit()
+driver.close()
+driver.quit()

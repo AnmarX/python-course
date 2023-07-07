@@ -1220,94 +1220,94 @@ import requests
 
 
 #------------------------------------day 15 start---------------------------------------
-# import sys
-# MENU = {
-#     "espresso": {
-#         "ingredients": {
-#             "water": 50,
-#             "coffee": 18,
-#         },
-#         "cost": 1.5,
-#     },
-#     "latte": {
-#         "ingredients": {
-#             "water": 200,
-#             "milk": 150,
-#             "coffee": 24,
-#         },
-#         "cost": 2.5,
-#     },
-#     "cappuccino": {
-#         "ingredients": {
-#             "water": 250,
-#             "milk": 100,
-#             "coffee": 24,
-#         },
-#         "cost": 3.0,
-#     }
-# }
-# profit = 0
-# resources = {
-#     "water": 300,
-#     "milk": 200,
-#     "coffee": 100,
-# }
+import sys
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+profit = 0
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
 
 # first is the user will chose a coffe 
 
 # then he will pay will money if he have enough money and we get the total money the person enterd he will get it if he doens't have enough money ge wont get the coffe also if the resource is not enough the person wont get the coffe
 
-#if he does get the coffe our reoruces will decrease and will add the profit of the person got it 
+# if he does get the coffe our reoruces will decrease and will add the profit of the person got it 
 
-#report to get the how much resource we got lift and how much i have earned
+# report to get the how much resource we got lift and how much i have earned
 
-# def calcMoney():
-#     money=0
-#     print("insert money for coffe")
-#     money+=int(input("How many 1 SR :"))* 1
-#     money+=int(input("How many 0.5 SR :"))* 0.5
-#     money+=int(input("How many 0.25 SR :"))* 0.25
-#     return money
+def calcMoney():
+    money=0
+    print("insert money for coffe")
+    money+=int(input("How many 1 SR :"))* 1
+    money+=int(input("How many 0.5 SR :"))* 0.5
+    money+=int(input("How many 0.25 SR :"))* 0.25
+    return money
 
 
-# def enough_money(money,dictResource):
-#     if money >= dictResource:
-#         global profit
-#         profit+=money
-#         return True
-#     else:
-#         print("not enough money")
-#         return False
+def enough_money(money,dictResource):
+    if money >= dictResource:
+        global profit
+        profit+=money
+        return True
+    else:
+        print("not enough money")
+        return False
 
-# def enough_resources(ingredients):
+def enough_resources(ingredients):
     
-#     for item in ingredients:
-#         if ingredients[item] > resources[item]:
-#             return False
-#     return True
+    for item in ingredients:
+        if ingredients[item] > resources[item]:
+            return False
+    return True
 
-# def resource_decrease(order_ingredients):
+def resource_decrease(order_ingredients):
     
-#     for item in order_ingredients:
-#         resources[item] -= order_ingredients[item]
-#     print("ur coffe is served")
+    for item in order_ingredients:
+        resources[item] -= order_ingredients[item]
+    print("ur coffe is served")
 
-# while True:
-#     user = input("​What would you like? (espresso/latte/cappuccino/exit): ")
-#     if user == "exit":
-#         sys.exit("")
+while True:
+    user = input("​What would you like? (espresso/latte/cappuccino/exit): ")
+    if user == "exit":
+        sys.exit("")
 
-#     elif user == "report":
-#         print(f"Water: {resources['water']}ml")
-#         print(f"Milk: {resources['milk']}ml")
-#         print(f"Coffee: {resources['coffee']}g")
-#         print(f"Money: {profit}SR")
+    elif user == "report":
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffee: {resources['coffee']}g")
+        print(f"Money: {profit}SR")
     
-#     else:
-#         if enough_resources(MENU[user]["ingredients"]):
-#             payment=calcMoney()
-#             if enough_money(payment,MENU[user]["cost"]):
-#                 resource_decrease(MENU[user]["ingredients"])
+    else:
+        if enough_resources(MENU[user]["ingredients"]):
+            payment=calcMoney()
+            if enough_money(payment,MENU[user]["cost"]):
+                resource_decrease(MENU[user]["ingredients"])
 
 
 
