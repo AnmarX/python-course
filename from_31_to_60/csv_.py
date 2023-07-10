@@ -27,14 +27,15 @@ print(qq)
 
 
 
-# #with dict
-# unmatched={}
-# for index,d in enumerate(sub_main):
-#     if d not in main:
-#         unmatched[index]={
-#             "name":d
-#         }
-    
+#with dict
+unmatched={}
+for index,d in enumerate(sub_main):
+    if d not in main:
+        unmatched[index]=d
+        # unmatched[index]={
+        #     "name":d
+        # }
+
 
 
 # qq={key:value for (key,value) in unmatched.items()}
