@@ -15,17 +15,30 @@ with open("./from_31_to_60/companyy.csv") as file:
     rr=pandas.read_csv(file,index_col=0)
     sub_main=rr["name"].to_list()
 
-unmatched={}
-for index,d in enumerate(main):
-    if d not in sub_main:
-        unmatched[index]={
-            "name":d
-        }
+# #with list
+unmatched=[]
+for index,d in enumerate(sub_main):
+    if d not in main:
+        unmatched.append(index)
+
+
+qq=[index for index in unmatched]
+print(qq)
+
+
+
+# #with dict
+# unmatched={}
+# for index,d in enumerate(sub_main):
+#     if d not in main:
+#         unmatched[index]={
+#             "name":d
+#         }
     
 
 
-qq={key:value for (key,value) in unmatched.items()}
-print(qq)
+# qq={key:value for (key,value) in unmatched.items()}
+# print(qq)
 
 
 
