@@ -3,15 +3,17 @@ import pandas
 from csv import QUOTE_NONNUMERIC
 
 
-
-with open("./from_31_to_60/company.csv") as file:
+# with open("./from_31_to_60/company.csv") as file: for windows 
+with open("./company.csv") as file:
     r=pandas.read_csv(file,index_col=0)
     main=r["name"].to_list()
     # data=r["name"]
     # for l in r:
     #     print(l)
 
-with open("./from_31_to_60/companyy.csv") as file:
+
+# with open("./from_31_to_60/company.csv") as file: for windows
+with open("./companyy.csv") as file:
     rr=pandas.read_csv(file,index_col=0)
     sub_main=rr["name"].to_list()
 
