@@ -2,3 +2,4 @@
 birthdays.csv
 __pycache__
 geckodriver.log
+.DS_Store
